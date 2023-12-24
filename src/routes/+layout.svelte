@@ -4,6 +4,7 @@
 	import { Toast, getToastStore } from '@skeletonlabs/skeleton';
 	import type { ToastSettings, ToastStore } from '@skeletonlabs/skeleton';
 	import { page } from '$app/stores';
+	import { base } from "$app/paths";
 
 	// Highlight JS
 	import hljs from 'highlight.js/lib/core';
