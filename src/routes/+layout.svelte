@@ -89,7 +89,7 @@
 			<svelte:fragment slot="trail">
 				<!--Home-->
 				<button class="btn hover:variant-soft-primary">
-					<a href="/">
+					<a href="{base}/">
 						<span><i class="fa-solid fa-house"></i></span>
 						<span>Homepage</span>
 					</a>
@@ -104,28 +104,28 @@
 					<nav class="list-nav">
 						<ul>
 							<li>
-								<a href="/day/1">Day 1</a>
+								<a href="{base}/day/1">Day 1</a>
 							</li>
 							<li>
-								<a href="/day/2">Day 2</a>
+								<a href="{base}/day/2">Day 2</a>
 							</li>
 							<li>
-								<a href="/day/3">Day 3</a>
+								<a href="{base}/day/3">Day 3</a>
 							</li>
 							<li>
-								<a href="/day/4">Day 4</a>
+								<a href="{base}/day/4">Day 4</a>
 							</li>
 							<li>
-								<a href="/day/5">Day 5</a>
+								<a href="{base}/day/5">Day 5</a>
 							</li>
 							<li>
-								<a href="/day/6">Day 6</a>
+								<a href="{base}/day/6">Day 6</a>
 							</li>
 							<li>
-								<a href="/day/7">Day 7</a>
+								<a href="{base}/day/7">Day 7</a>
 							</li>
 							<li>
-								<a href="/day/8">Day 8</a>
+								<a href="{base}/day/8">Day 8</a>
 							</li>
 						</ul>
 					</nav>
@@ -141,28 +141,28 @@
 					<nav class="list-nav">
 						<ul>
 							<li>
-								<a href="/day/9">Day 9</a>
+								<a href="{base}/day/9">Day 9</a>
 							</li>
 							<li>
-								<a href="/day/10">Day 10</a>
+								<a href="{base}/day/10">Day 10</a>
 							</li>
 							<li>
-								<a href="/day/11">Day 11</a>
+								<a href="{base}/day/11">Day 11</a>
 							</li>
 							<li>
-								<a href="/day/12">Day 12</a>
+								<a href="{base}/day/12">Day 12</a>
 							</li>
 							<li>
-								<a href="/day/13">Day 13</a>
+								<a href="{base}/day/13">Day 13</a>
 							</li>
 							<li>
-								<a href="/day/14">Day 14</a>
+								<a href="{base}/day/14">Day 14</a>
 							</li>
 							<li>
-								<a href="/day/15">Day 15</a>
+								<a href="{base}/day/15">Day 15</a>
 							</li>
 							<li>
-								<a href="/day/16">Day 16</a>
+								<a href="{base}/day/16">Day 16</a>
 							</li>
 						</ul>
 					</nav>
@@ -178,28 +178,28 @@
 						<nav class="list-nav">
 							<ul>
 								<li>
-									<a href="/day/17">Day 17</a>
+									<a href="{base}/day/17">Day 17</a>
 								</li>
 								<li>
-									<a href="/day/18">Day 18</a>
+									<a href="{base}/day/18">Day 18</a>
 								</li>
 								<li>
-									<a href="/day/19">Day 19</a>
+									<a href="{base}/day/19">Day 19</a>
 								</li>
 								<li>
-									<a href="/day/20">Day 20</a>
+									<a href="{base}/day/20">Day 20</a>
 								</li>
 								<li>
-									<a href="/day/21">Day 21</a>
+									<a href="{base}/day/21">Day 21</a>
 								</li>
 								<li>
-									<a href="/day/22">Day 22</a>
+									<a href="{base}/day/22">Day 22</a>
 								</li>
 								<li>
-									<a href="/day/23">Day 23</a>
+									<a href="{base}/day/23">Day 23</a>
 								</li>
 								<li>
-									<a href="/day/24">Day 24</a>
+									<a href="{base}/day/24">Day 24</a>
 								</li>
 							</ul>
 						</nav>
@@ -213,7 +213,7 @@
 		{#if day > 0}
 			<div class="card p-4 variant-soft-primary w-full flex justify-between items-center">
 				{#if day > 1}
-					<a href="/day/{day - 1}" class="btn-icon variant-filled">
+					<a href="{base}/day/{day - 1}" class="btn-icon variant-filled">
 						<i class="fa-solid fa-arrow-left"></i>
 					</a>
 				{:else}
@@ -221,7 +221,7 @@
 				{/if}
 				<h1>Day {day}: {title}</h1>
 				{#if day < 24}
-					<a href="/day/{day + 1}" class="btn-icon variant-filled">
+					<a href="{base}/day/{day + 1}" class="btn-icon variant-filled">
 						<i class="fa-solid fa-arrow-right"></i>
 					</a>
 				{:else}
