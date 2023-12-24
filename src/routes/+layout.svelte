@@ -1,10 +1,17 @@
 <script lang="ts">
 	import '../app.postcss';
-	import { AppShell, AppBar, popup, type PopupSettings, LightSwitch, initializeStores } from '@skeletonlabs/skeleton';
+	import {
+		AppShell,
+		AppBar,
+		popup,
+		type PopupSettings,
+		LightSwitch,
+		initializeStores
+	} from '@skeletonlabs/skeleton';
 	import { Toast, getToastStore } from '@skeletonlabs/skeleton';
 	import type { ToastSettings, ToastStore } from '@skeletonlabs/skeleton';
 	import { page } from '$app/stores';
-	import { base } from "$app/paths";
+	import { base } from '$app/paths';
 
 	// Highlight JS
 	import hljs from 'highlight.js/lib/core';
@@ -69,7 +76,7 @@
 		day = match ? parseInt(match[1]) : 0;
 	});
 
-	initializeStores()
+	initializeStores();
 </script>
 
 <Toast />
@@ -79,12 +86,14 @@
 		<!-- App Bar -->
 		<AppBar>
 			<svelte:fragment slot="lead">
-				<img
-					src="https://i.imgur.com/E9LJ0pL.png"
-					alt="Icon of Svelte with a Santa hat"
-					width="50"
-				/>
-				<strong class="text-xl uppercase">Advent of Svelte 2023</strong>
+				<a href="{base}/" class="flex items-center">
+					<img
+						src="https://i.imgur.com/E9LJ0pL.png"
+						alt="Icon of Svelte with a Santa hat"
+						width="50"
+					/>
+					<strong class="text-xl uppercase">Advent of Svelte 2023</strong>
+				</a>
 				<LightSwitch class="mx-5" />
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
