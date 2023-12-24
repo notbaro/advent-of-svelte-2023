@@ -1,6 +1,8 @@
 <script lang="ts">
 	import '../app.postcss';
-	import { AppShell, AppBar, popup, type PopupSettings, LightSwitch } from '@skeletonlabs/skeleton';
+	import { AppShell, AppBar, popup, type PopupSettings, LightSwitch, initializeStores } from '@skeletonlabs/skeleton';
+	import { Toast, getToastStore } from '@skeletonlabs/skeleton';
+	import type { ToastSettings, ToastStore } from '@skeletonlabs/skeleton';
 	import { page } from '$app/stores';
 
 	// Highlight JS
@@ -65,8 +67,11 @@
 		const match = value.route.id?.match(/day\/(\d+)/);
 		day = match ? parseInt(match[1]) : 0;
 	});
+
+	initializeStores()
 </script>
 
+<Toast />
 <!-- App Shell -->
 <AppShell>
 	<svelte:fragment slot="header">
@@ -205,24 +210,27 @@
 	</svelte:fragment>
 
 	<svelte:fragment slot="pageHeader">
-		<div class="card p-4 variant-soft-primary w-full flex justify-between items-center">
-			{#if day > 1}
-				<a href="/day/{day - 1}" class="btn-icon variant-filled">
-					<i class="fa-solid fa-arrow-left"></i>
-				</a>
-			{:else}
-				<div></div>
-			{/if}
-			<span>Day {day}: {title}</span>
-			{#if day < 24}
-				<a href="/day/{day + 1}" class="btn-icon variant-filled">
-					<i class="fa-solid fa-arrow-right"></i>
-				</a>
-			{:else}
-				<div></div>
-			{/if}
-		</div>
+		{#if day > 0}
+			<div class="card p-4 variant-soft-primary w-full flex justify-between items-center">
+				{#if day > 1}
+					<a href="/day/{day - 1}" class="btn-icon variant-filled">
+						<i class="fa-solid fa-arrow-left"></i>
+					</a>
+				{:else}
+					<div></div>
+				{/if}
+				<h1>Day {day}: {title}</h1>
+				{#if day < 24}
+					<a href="/day/{day + 1}" class="btn-icon variant-filled">
+						<i class="fa-solid fa-arrow-right"></i>
+					</a>
+				{:else}
+					<div></div>
+				{/if}
+			</div>
+		{/if}
 	</svelte:fragment>
+
 	<!-- Page Route Content -->
 	<slot />
 	<!--Page Footer-->
