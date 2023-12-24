@@ -31,6 +31,7 @@
 	// Floating UI for Popups
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
+	import { dayTitle } from '$lib/utils';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
 	const popupClick: PopupSettings = {
@@ -39,33 +40,6 @@
 		placement: 'top'
 	};
 
-	const dayTitle = [
-		"You shouldn't be here",
-		'Naughty or Nice',
-		'Merry Munch-o-meter',
-		'Jingle Bell Balancer',
-		'Heart of Christmas',
-		'Present Progress',
-		'Mistletoe Metronome',
-		'Morse Mischief',
-		"Santa's Myseterious Deck of Doubles",
-		"Santa's Final Countdown",
-		'Pop-up! Spreading the holiday cheer',
-		'Tinsel Transformers',
-		'Greetings and salutations',
-		'Jingle Bell Balancer 2.0',
-		'Snowfall Symphony',
-		'Sparkling Snowglobes',
-		'Lessons from Amazon™️',
-		'Festive Funds',
-		"Santa's Quiz",
-		'Polar Lights',
-		'Jingle Jokes',
-		'Oh the weather outside is frightful',
-		'Snowflake Silhouettes',
-		'ElfNet Social',
-		"Santa's Magical Tracker"
-	];
 
 	let day = 0;
 	$: title = dayTitle[day];
