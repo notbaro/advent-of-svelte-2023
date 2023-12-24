@@ -4,7 +4,7 @@
 </script>
 
 <div
-	class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 mt-5"
+	class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 mt-5 p-4"
 >
 	{#each Array(24).fill(1) as _, i}
 		<a href="{base}/day/{i + 1}" class="card p-4 flex flex-col items-center card-hover">
