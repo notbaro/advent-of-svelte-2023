@@ -34,7 +34,6 @@
 		'pk.eyJ1Ijoibm90YmFybyIsImEiOiJjbHFrMXQ4cTkyYWljMnFwYXp4NG9venU3In0.6YLmFFbWA6iWhnhM0YvfgA';
 </script>
 
-<main>
 	<div class="card p-4 w-full block">
 		<header class="card-header text-center">
 			<h2 class="text-2xl font-bold text-primary-400">
@@ -100,7 +99,6 @@
 			{/if}
 		</div>
 	{/each}
-</main>
 
 <style>
 	.breadcrumb::-webkit-scrollbar {
