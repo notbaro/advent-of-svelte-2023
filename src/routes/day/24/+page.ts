@@ -1,6 +1,6 @@
 import type { PageLoad } from './$types';
 
-interface Destination {
+export interface Destination {
   id: string;
   arrival: number; // arrival unix timestamp (UTC)
   departure: number | null; // only null for the final landing
@@ -14,7 +14,7 @@ interface Destination {
   };
 }
 
-interface ResponseData {
+export interface ResponseData {
   /**
    * Current Location
    */

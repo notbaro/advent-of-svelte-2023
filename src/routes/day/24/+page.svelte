@@ -2,6 +2,8 @@
 	import { Map, Marker } from '@beyonk/svelte-mapbox';
 	import type { PageData } from './$types';
 	import { popup, type PopupSettings } from '@skeletonlabs/skeleton';
+	import { onMount } from 'svelte';
+	import type { ResponseData } from './+page';
 
 	export let data: PageData;
 	$: next = data.response.next;
@@ -9,14 +11,27 @@
 	$: last = history[history.length - 1];
 	let mapComponent: Map;
 	let presentDelivered: number[] = [0];
-	for (let i = 1; i < history.length; i++) {
-		presentDelivered.push(history[i].presentsDelivered - history[i - 1].presentsDelivered);
-		presentDelivered = presentDelivered;
+	$: {
+		for (let i = 1; i < history.length; i++) {
+			presentDelivered.push(history[i].presentsDelivered - history[i - 1].presentsDelivered);
+			presentDelivered = presentDelivered;
+		}
 	}
 
 	function onReady() {
 		mapComponent.flyTo({ center: [last.location.lng, last.location.lat], zoom: 4, duration: 500 });
 	}
+
+	onMount(() => {
+		setInterval(async () => {
+			const res = await fetch('https://advent.sveltesociety.dev/data/2023/day-twenty-four.json');
+			const resJson: ResponseData = await res.json();
+			const newHistory = resJson.history;
+			if (newHistory.length > history.length) {
+				history = newHistory;
+			}
+		}, 1000 * 60);
+	});
 
 	const MAPBOX_TOKEN =
 		'pk.eyJ1Ijoibm90YmFybyIsImEiOiJjbHFrMXQ4cTkyYWljMnFwYXp4NG9venU3In0.6YLmFFbWA6iWhnhM0YvfgA';
