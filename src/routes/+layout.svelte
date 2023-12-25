@@ -34,6 +34,9 @@
 	import { dayTitle } from '$lib/utils';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
+	//Vercel's Speed Insights
+	import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit"
+	injectSpeedInsights();
 	const popupClick: PopupSettings = {
 		event: 'click',
 		target: 'popupClick',
