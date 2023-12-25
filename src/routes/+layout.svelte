@@ -12,6 +12,8 @@
 	import type { ToastSettings, ToastStore } from '@skeletonlabs/skeleton';
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
+	import { dev } from '$app/environment';
+
 
 	// Highlight JS
 	import hljs from 'highlight.js/lib/core';
@@ -37,6 +39,11 @@
 	//Vercel's Speed Insights
 	import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit"
 	injectSpeedInsights();
+
+	//Vercel's Analytics
+	import {inject} from '@vercel/analytics'
+	inject({ mode: dev ? 'development' : 'production' });
+	
 	const popupClick: PopupSettings = {
 		event: 'click',
 		target: 'popupClick',
