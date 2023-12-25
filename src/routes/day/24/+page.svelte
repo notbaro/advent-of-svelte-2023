@@ -26,10 +26,7 @@
 		setInterval(async () => {
 			const res = await fetch('https://advent.sveltesociety.dev/data/2023/day-twenty-four.json');
 			const resJson: ResponseData = await res.json();
-			const newHistory = resJson.history;
-			if (newHistory.length > history.length) {
-				history = newHistory;
-			}
+			history = resJson.history;
 		}, 1000 * 60);
 	});
 
