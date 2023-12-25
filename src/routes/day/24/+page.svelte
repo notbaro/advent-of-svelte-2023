@@ -22,10 +22,37 @@
 		'pk.eyJ1Ijoibm90YmFybyIsImEiOiJjbHFrMXQ4cTkyYWljMnFwYXp4NG9venU3In0.6YLmFFbWA6iWhnhM0YvfgA';
 </script>
 
-<div class="card p-4 w-full">
+<div class="card p-4 w-full block">
 	<header class="card-header text-center">
-		<h2 class="text-2xl font-bold text-primary-400">🎅 has delivered {last.presentsDelivered} 🎁 across {history.length - 1} cities!</h2>
+		<h2 class="text-2xl font-bold text-primary-400">
+			🎅 has delivered {last.presentsDelivered} 🎁 across {history.length - 1} cities!
+		</h2>
 	</header>
+	<section class="p-4 w-full max-w-full">
+		<div class="overflow-x-auto" style="width: 100%;">
+			<ol class="text-sm breadcrumb overflow-y-scroll">
+				{#each history as h, i}
+					<li class="crumb">
+						<button
+							type="button"
+							class="btn variant-soft-primary"
+							on:click={() => {
+								mapComponent.flyTo({
+									center: [h.location.lng, h.location.lat],
+									zoom: 4,
+									duration: 500
+								});
+							}}
+							><span class="text-on-surface-token cursor-pointer transition-all">{h.city}</span>
+						</button>
+					</li>
+					{#if i < history.length - 1}
+						<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+					{/if}
+				{/each}
+			</ol>
+		</div>
+	</section>
 </div>
 <Map
 	accessToken={MAPBOX_TOKEN}
@@ -60,3 +87,9 @@
 		{/if}
 	</div>
 {/each}
+
+<style>
+	.breadcrumb::-webkit-scrollbar {
+		display: -webkit-inline-box;
+	}
+</style>
