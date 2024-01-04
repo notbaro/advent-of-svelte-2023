@@ -5,7 +5,7 @@
 
 	export let data: PageData;
 
-	let available = data.gifts;
+	let available = data.gifts.sort((a, b) => b.weight - a.weight);
 	let loaded: Gift[] = [];
 	let currentLoad = 0;
 
@@ -14,6 +14,7 @@
 		currentLoad += gift.weight;
 		currentLoad = Math.round(currentLoad * 100) / 100;
 		available = available.filter((g) => g.name !== gift.name);
+		available = available.sort((a, b) => b.weight - a.weight);
 	}
 
 	function handleUnload(gift: Gift) {
@@ -38,8 +39,8 @@
 				max={100}
 				value={currentLoad}
 				height="h-5"
-				meter="bg-primary-500"
-				track="bg-surface-backdrop-token"
+				meter="bg-primary-900-50-token"
+				track="bg-primary-50-900-token"
 			/>
 		</footer>
 	</div>
@@ -47,7 +48,7 @@
 		<div class="card p-4 w-2/5">
 			<div class="grid grid-cols-5 gap-4">
 				{#each available.filter((gift) => currentLoad + gift.weight <= 100) as gift}
-					<button class="btn variant-filled-primary w-full" on:click={() => handleLoad(gift)}>
+					<button class="btn variant-filled-success w-full" on:click={() => handleLoad(gift)}>
 						<span class="font-semibold">{gift.name} - {' ' + gift.weight}</span>
 					</button>
 				{/each}
@@ -56,7 +57,7 @@
 		<div class="card p-4 w-2/5">
 			<div class="grid grid-cols-5 gap-4">
 				{#each loaded as gift}
-					<button class="btn variant-filled-secondary w-full" on:click={() => handleUnload(gift)}>
+					<button class="btn variant-filled-error w-full" on:click={() => handleUnload(gift)}>
 						<span class="font-semibold">{gift.name} - {' ' + gift.weight}</span>
 					</button>
 				{/each}

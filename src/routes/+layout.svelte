@@ -96,31 +96,12 @@
 				<!--popup-->
 				<div class="card p-4 w-60 shadow-xl" data-popup="1">
 					<nav class="list-nav">
-						<ul>
-							<li>
-								<a href="{base}/day/1">Day 1</a>
-							</li>
-							<li>
-								<a href="{base}/day/2">Day 2</a>
-							</li>
-							<li>
-								<a href="{base}/day/3">Day 3</a>
-							</li>
-							<li>
-								<a href="{base}/day/4">Day 4</a>
-							</li>
-							<li>
-								<a href="{base}/day/5">Day 5</a>
-							</li>
-							<li>
-								<a href="{base}/day/6">Day 6</a>
-							</li>
-							<li>
-								<a href="{base}/day/7">Day 7</a>
-							</li>
-							<li>
-								<a href="{base}/day/8">Day 8</a>
-							</li>
+						<ul class="divide-y divide-primary-500">
+							{#each Array(8).fill(0) as _, i}
+								<li>
+									<a href="{base}/day/{i + 1}" class="btn" data-sveltekit-preload-data="hover">Day {i + 1}</a>
+								</li>
+							{/each}
 						</ul>
 					</nav>
 				</div>
@@ -133,31 +114,12 @@
 				<!--popup-->
 				<div class="card p-4 w-60 shadow-xl" data-popup="2">
 					<nav class="list-nav">
-						<ul>
-							<li>
-								<a href="{base}/day/9">Day 9</a>
-							</li>
-							<li>
-								<a href="{base}/day/10">Day 10</a>
-							</li>
-							<li>
-								<a href="{base}/day/11">Day 11</a>
-							</li>
-							<li>
-								<a href="{base}/day/12">Day 12</a>
-							</li>
-							<li>
-								<a href="{base}/day/13">Day 13</a>
-							</li>
-							<li>
-								<a href="{base}/day/14">Day 14</a>
-							</li>
-							<li>
-								<a href="{base}/day/15">Day 15</a>
-							</li>
-							<li>
-								<a href="{base}/day/16">Day 16</a>
-							</li>
+						<ul class="divide-y divide-primary-500">
+							{#each Array(8).fill(0) as _, i}
+								<li>
+									<a href="{base}/day/{i + 9}" class="btn" data-sveltekit-preload-data="hover">Day {i + 9}</a>
+								</li>
+							{/each}
 						</ul>
 					</nav>
 				</div>
@@ -170,31 +132,12 @@
 				<nav class="list-nav">
 					<div class="card p-4 w-60 shadow-xl" data-popup="3">
 						<nav class="list-nav">
-							<ul>
+						<ul class="divide-y divide-primary-500">
+								{#each Array(8).fill(0) as _, i}
 								<li>
-									<a href="{base}/day/17">Day 17</a>
+									<a href="{base}/day/{i + 17}" class="btn" data-sveltekit-preload-data="hover">Day {i + 17}</a>
 								</li>
-								<li>
-									<a href="{base}/day/18">Day 18</a>
-								</li>
-								<li>
-									<a href="{base}/day/19">Day 19</a>
-								</li>
-								<li>
-									<a href="{base}/day/20">Day 20</a>
-								</li>
-								<li>
-									<a href="{base}/day/21">Day 21</a>
-								</li>
-								<li>
-									<a href="{base}/day/22">Day 22</a>
-								</li>
-								<li>
-									<a href="{base}/day/23">Day 23</a>
-								</li>
-								<li>
-									<a href="{base}/day/24">Day 24</a>
-								</li>
+							{/each}
 							</ul>
 						</nav>
 					</div>

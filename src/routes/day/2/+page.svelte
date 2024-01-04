@@ -22,7 +22,7 @@
 			<h2 class="card-title text-2xl font-bold text-primary-400">Santa's Cookie Meter</h2>
 		</header>
 		<section class="p-4 flex flex-col items-center justify-center">
-			<ProgressRadial {value} on:click={addCookie} />
+			<ProgressRadial {value} on:click={addCookie} meter="stroke-primary-900 dark:stroke-primary-50" track="stroke-primary-50 dark:stroke-primary-900"/>
 			<div id="cookie"><span class="chip text-2xl bg-transparent">🍪</span></div>
 				
 		</section>

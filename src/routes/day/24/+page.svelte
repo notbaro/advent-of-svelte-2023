@@ -82,7 +82,7 @@
 						placement: 'top'
 					}}
 				>
-					<span class="text-tertiary-500">{i}</span>
+					<span class="text-primary-50">{i}</span>
 				</button>
 			</Marker>
 		{/each}
